@@ -37,3 +37,4 @@ function sayhi(variable) {
 	}
 }
 sayhi(urlParams['sayhi']);
+document.getElementById("item").onclick = function() {toggleMenu();};
