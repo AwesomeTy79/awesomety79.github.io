@@ -19,6 +19,14 @@
 }).catch(function(error) {
   console.log('Kinvey Ping Failed. Response: ' + error.description);
 });
+  var dataStore = Kinvey.DataStore.collection('Suggestions');
+  var promise = dataStore.save({
+  field: 'value'
+}).then(function onSuccess(entity) {
+  // ...
+}).catch(function onError(error) {
+  // ...
+});
   </script>
 <div class="dropdown">
 <button onclick="toggleMenu()" class="dropbtn">Links</button>
