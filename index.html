@@ -21,11 +21,11 @@
 });
   var dataStore = Kinvey.DataStore.collection('Suggestions');
   var promise = dataStore.save({
-  field: 'value'
+  field: 'test-value'
 }).then(function onSuccess(entity) {
-  // ...
+  console.log('kinley success')
 }).catch(function onError(error) {
-  // ...
+  console.log('error')
 });
   </script>
 <div class="dropdown">
