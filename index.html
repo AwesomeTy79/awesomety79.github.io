@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="code/dropdown.css">
+<script src='code/dropdown.js'></script>
+</head>
+<body>
+<div class="dropdown">
+<button onclick="toggleMenu()" class="dropbtn">Dropdown</button>
+  <div id="myDropdown" class="dropdown-content">
+    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+    <a href="#about" onclick='toggleMenu()'>About</a>
+    <a href="#base" onclick='toggleMenu()'>Base</a>
+    <a href="#blog" onclick='toggleMenu()'>Blog</a>
+    <a href="#contact" onclick='toggleMenu()'>Contact</a>
+    <a href="#custom" onclick='toggleMenu()'>Custom</a>
+    <a href="#support" onclick='toggleMenu()'>Support</a>
+    <a href="#tools" onclick='toggleMenu()'>Tools</a>
+  </div>
+</div>
+</body>
+</html>
