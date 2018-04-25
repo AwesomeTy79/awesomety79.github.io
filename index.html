@@ -23,9 +23,9 @@
   var promise = dataStore.save({
   field: 'test-value'
 }).then(function onSuccess(entity) {
-  console.log('kinley success')
+  console.log(entity)
 }).catch(function onError(error) {
-  console.log('error')
+  console.log(error)
 });
   </script>
 <div class="dropdown">
