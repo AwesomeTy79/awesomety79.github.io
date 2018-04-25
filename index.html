@@ -20,6 +20,12 @@
 }).catch(function(error) {
   console.log('Kinvey Ping Failed. Response: ' + error.description);
 });
+  var promise = Kinvey.User.signup()
+  .then(function(user) {
+    console.log('user: ' + user)
+  }).catch(function(error) {
+    console.log(error)
+  });
   var dataStore = Kinvey.DataStore.collection('Suggestions');
   var promise = dataStore.save({
   field: 'test-value'
