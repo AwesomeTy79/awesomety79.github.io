@@ -14,6 +14,11 @@
   appKey: 'kid_ryLl7wR2z',
   appSecret: 'e980bd471a3d4b16a17a8612e76c0c35'
 });
+  var promise = Kinvey.ping().then(function(response) {
+  console.log('Kinvey Ping Success. Kinvey Service is alive, version: ' + response.version + ', response: ' + response.kinvey);
+}).catch(function(error) {
+  console.log('Kinvey Ping Failed. Response: ' + error.description);
+});
   </script>
 <div class="dropdown">
 <button onclick="toggleMenu()" class="dropbtn">Links</button>
