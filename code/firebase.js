@@ -49,3 +49,6 @@
   
   
   }
+function entryValidate() {
+// This is not yet done - it will make sure the entries are fine.
+}
