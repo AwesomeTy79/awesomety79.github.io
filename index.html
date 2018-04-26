@@ -20,12 +20,13 @@
   <link rel='icon' href='files/LogoMakr_2fuRPd.png'>
   <title>Awesomety79</title>
   <script>
-  function saveToFirebase(email) {
-    var emailObject = {
-        email: email
+  function saveToFirebase(email, suggestion) {
+    var dataObject = {
+        email: email,
+        suggestion: suggestion
     };
 
-    firebase.database().ref('subscription-entries').push().set(emailObject)
+    firebase.database().ref('suggestion-entries').push().set(dataObject)
         .then(function(snapshot) {
             success(); // some success method
         }, function(error) {
@@ -36,8 +37,9 @@
 
   
   function test() {
-  var email = prompt('enter save thing');
-  saveToFirebase(email);
+  var email = prompt('enter your email');
+  var suggestion = prompt('what is your suggestion?')
+  saveToFirebase(email, suggestion);
   
   
   
@@ -53,7 +55,7 @@
     <a href="https://awesomety79.github.io" id='item'>Home</a>
     <a href="psa" id='item'>My PSA</a>
     <a href='https://github.com/awesomety79' id='item'>My github</a>
-    <a href='#' onclick='toggleMenu(); test();'>test</a>
+    <a href='#' onclick='toggleMenu(); test();'>Suggest sompthing</a>
   </div>
 </div>
 </body>
