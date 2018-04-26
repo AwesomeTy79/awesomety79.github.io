@@ -19,6 +19,30 @@
   <script src='code/js.js'></script>
   <link rel='icon' href='files/LogoMakr_2fuRPd.png'>
   <title>Awesomety79</title>
+  <script>
+  function saveToFirebase(email) {
+    var emailObject = {
+        email: email
+    };
+
+    firebase.database().ref('subscription-entries').push().set(emailObject)
+        .then(function(snapshot) {
+            success(); // some success method
+        }, function(error) {
+            console.log('error' + error);
+            error(); // some error method
+        });
+}
+
+  
+  function test() {
+  var email = prompt('enter save thing');
+  saveToFirebase(email);
+  
+  
+  
+  }
+  </script>
 </head>
 <body>
 
@@ -29,6 +53,7 @@
     <a href="https://awesomety79.github.io" id='item'>Home</a>
     <a href="psa" id='item'>My PSA</a>
     <a href='https://github.com/awesomety79' id='item'>My github</a>
+    <a href='#' onclick='toggleMenu(); test();'>test</a>
   </div>
 </div>
 </body>
