@@ -33,7 +33,7 @@
             alert('error: ' + error);
         });
 }
-    function issue(email, issue) {
+    function saveIssue(email, issue) {
     var dataObject = {
         email: email,
         issue: issue
@@ -51,7 +51,7 @@
   function suggest() {
   var email = prompt('Enter your email');
   var suggestion = prompt('What is your suggestion?')
-  savesuggestion(email, suggestion);
+  saveSuggestion(email, suggestion);
   
   
   
@@ -59,7 +59,7 @@
   function issue() {
   var email = prompt('Enter your email');
   var issue = prompt('What is your issue?')
-  saveissue(email, issue);
+  saveIssue(email, issue);
   
   
   
