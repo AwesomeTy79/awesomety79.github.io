@@ -20,7 +20,7 @@
   <link rel='icon' href='files/LogoMakr_2fuRPd.png'>
   <title>Awesomety79</title>
   <script>
-  function saveToFirebase(email, suggestion) {
+  function saveSuggestion(email, suggestion) {
     var dataObject = {
         email: email,
         suggestion: suggestion
@@ -28,18 +28,38 @@
 
     firebase.database().ref('suggestion-entries').push().set(dataObject)
         .then(function(snapshot) {
-            success(); // some success method
+            alert('Thank you, it has been prosseced succesfuly.')
         }, function(error) {
-            console.log('error' + error);
-            error(); // some error method
+            alert('error: ' + error);
+        });
+}
+    function issue(email, issue) {
+    var dataObject = {
+        email: email,
+        issue: issue
+    };
+
+    firebase.database().ref('issue-entries').push().set(dataObject)
+        .then(function(snapshot) {
+            alert('Thank you, it has been prosseced succesfuly.')
+        }, function(error) {
+            alert('error: ' + error);
         });
 }
 
   
-  function test() {
-  var email = prompt('enter your email');
-  var suggestion = prompt('what is your suggestion?')
-  saveToFirebase(email, suggestion);
+  function suggest() {
+  var email = prompt('Enter your email');
+  var suggestion = prompt('What is your suggestion?')
+  savesuggestion(email, suggestion);
+  
+  
+  
+  }
+  function issue() {
+  var email = prompt('Enter your email');
+  var issue = prompt('What is your issue?')
+  saveissue(email, issue);
   
   
   
@@ -55,7 +75,8 @@
     <a href="https://awesomety79.github.io" id='item'>Home</a>
     <a href="psa" id='item'>My PSA</a>
     <a href='https://github.com/awesomety79' id='item'>My github</a>
-    <a href='#' onclick='toggleMenu(); test();'>Suggest sompthing</a>
+    <a href='#' onclick='toggleMenu(); suggest();'>Suggest sompthing</a>
+    <a href='#' onclick='toggleMenu(); issue();'>Report an issue</a>
   </div>
 </div>
 </body>
