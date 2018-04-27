@@ -37,5 +37,5 @@ function sayhi(variable) {
 	}
 }
 if (sayhi(urlParams['sayhi'])) { alert('hi'); }
-if (sayhi(urlParams['log'])) { signIn() }
+if (sayhi(urlParams['log'])) { signIn(); }
 document.getElementById("item").onclick = function() {toggleMenu();};
