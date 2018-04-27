@@ -33,8 +33,9 @@ var urlParams;
 function sayhi(variable) {
 	if (typeof variable !== 'undefined') {
     	
-    	alert('hi');
+    	return true;
 	}
 }
-sayhi(urlParams['sayhi']);
+if (sayhi(urlParams['sayhi'])) { alert('hi'); }
+if (sayhi(urlParams['log'])) { signIn() }
 document.getElementById("item").onclick = function() {toggleMenu();};
