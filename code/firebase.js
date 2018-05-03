@@ -1,4 +1,4 @@
- // Initialize Firebase
+// Initialize Firebase
   var config = {
     apiKey: "AIzaSyDvyGrbzYUGaTDOIQ8vCAz_dlPHFqLKM14",
     authDomain: "mygithubpageapp.firebaseapp.com",
@@ -7,24 +7,30 @@
     storageBucket: "",
     messagingSenderId: "670341749302"
   };
-  var app = firebase.initializeApp(config);
-  var db = firebase.firestore(app);
+  firebase.initializeApp(config);
  function saveSuggestion(email, suggestion) {
-var docData = {
-    suggestion: suggestion
-};
-db.collection("Suggestions").doc(email).set(docData).then(function() {
-    alert("Document successfully written!");
-});
-
+    var dataObject = {
+        email: email,
+        suggestion: suggestion
+    };
+    firebase.database().ref('suggestion-entries').push().set(dataObject)
+        .then(function(snapshot) {
+            alert('Thank you, it has been prosseced succesfuly.')
+        }, function(error) {
+            alert('error: ' + error);
+        });
 }
     function saveIssue(email, issue) {
-    var docData = {
-    issue: issue
-};
-db.collection("Issues").doc(email).set(docData).then(function() {
-    alert("Document successfully written!");
-});
+    var dataObject = {
+        email: email,
+        issue: issue
+    };
+    firebase.database().ref('issue-entries').push().set(dataObject)
+        .then(function(snapshot) {
+            alert('Thank you, it has been prosseced succesfuly.')
+        }, function(error) {
+            alert('error: ' + error);
+        });
 }
   
   function suggest() {
