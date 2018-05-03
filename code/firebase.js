@@ -7,30 +7,24 @@
     storageBucket: "",
     messagingSenderId: "670341749302"
   };
-  firebase.initializeApp(config);
+  var app = firebase.initializeApp(config);
+  var db = firebase.firestore(app);
  function saveSuggestion(email, suggestion) {
-    var dataObject = {
-        email: email,
-        suggestion: suggestion
-    };
-    firebase.database().ref('suggestion-entries').push().set(dataObject)
-        .then(function(snapshot) {
-            alert('Thank you, it has been prosseced succesfuly.')
-        }, function(error) {
-            alert('error: ' + error);
-        });
+var docData = {
+    suggestion: suggestion
+};
+db.collection("Suggestions").doc(email).set(docData).then(function() {
+    alert("Document successfully written!");
+});
+
 }
     function saveIssue(email, issue) {
-    var dataObject = {
-        email: email,
-        issue: issue
-    };
-    firebase.database().ref('issue-entries').push().set(dataObject)
-        .then(function(snapshot) {
-            alert('Thank you, it has been prosseced succesfuly.')
-        }, function(error) {
-            alert('error: ' + error);
-        });
+    var docData = {
+    issue: issue
+};
+db.collection("Issues").doc(email).set(docData).then(function() {
+    alert("Document successfully written!");
+});
 }
   
   function suggest() {
